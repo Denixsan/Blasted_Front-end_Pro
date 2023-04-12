@@ -7,9 +7,10 @@ let multi = 1;
 
 /* Task 1 */
 
-for (num1 = 10; num1 <= 20; num1++) {
-    document.write(num1+' ');
-}
+// for (num1 = 10; num1 < 20; num1++) {
+//     document.write(num1 + ', ');
+// }
+// document.write(20);
 
 /* Task 2 */
 
@@ -54,27 +55,70 @@ for (num1 = 10; num1 <= 20; num1++) {
 
 /* Task 7 */
 
-while (num4 <= 80) {
-    sum = sum + num4;
-    num4 += 2;
-}
-    console.log(sum);
+// while (num4 <= 80) {
+//     sum = sum + num4;
+//     num4 += 2;
+// }
+//     console.log(sum);
 
 /* Task 8 */
 
-
+// for (num4 = 100; num4 < 198; num4++) {
+//     if (num4 % 3 == 0)
+//     document.write(num4 + ', ');
+// }
+// document.write(198);
 
 /* Task 9 */
 
+// let number = prompt(`Type your number`), divisor = [], i = 1;
+// while(i <= number) {
+//     if(number % i == 0) divisor.push(i);
+//     i++;
+// }
+// if (divisor.length > 2) {
+// alert(divisor);
+// }
+// else {
+//     alert(number + ` is a prime number.`)
+// }
 
 
 /* Task 10 */
 
-
+// let number = prompt(`Type your number`), divisor = [], i = 2;
+// while(i <= number) {
+//     if (number % i == 0) divisor.push(i);
+//     i += 2;
+// }
+// if (divisor.length > 0) {
+// alert(divisor);
+// }
+// else {
+//     alert(number + ` has no even divisors.`)
+// }
 
 /* Task 11 */
 
-
+// let number = prompt(`Type your number`);
+// for(let i = 2; i <= number; i +=2) {
+//     if (number % i == 0) 
+//     sum += i;
+// }
+// if (sum > 0) {
+// alert(sum);
+// }
+// else {
+//     alert(number + ` has no even divisors.`)
+// }
 
 /* Task 12 */
 
+// while (num2 <= 10) {
+//     while (multi <= 10) {
+//     console.log(num2 + ` * ` + multi + ` = ` + (num2 * multi) );
+//     multi++;
+//     };
+//     multi = 1;
+//     num2++;
+// }
