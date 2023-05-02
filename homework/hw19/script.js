@@ -54,3 +54,12 @@ let users = [
     "address": "314 Dunne Place, Bawcomville, Guam, 9053"
     }
     ]
+
+    users.map(function(obj) {
+        console.log(obj);
+
+        Object.assign(obj, {balanceNumber: parseFloat(obj[`balance`].replace(/[$,]/g, ``))})
+    });
+
+    console.log(users.filter((f) => f.balanceNumber > 2000).map((x) => x.phone));
+    console.log(users.map((x) => x.balanceNumber).reduce((a, b) => a + b));

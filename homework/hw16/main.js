@@ -1,3 +1,4 @@
+`use strict`
 function Person(pName, pAge) {
     this.personName = pName;
     this.personAge = pAge;
@@ -39,9 +40,10 @@ const car3 = new Car(`Subaru`, `Impreza`, 2023, `AA2222AA`);
 car1.setCarOwner(person1);
 console.log(`-----------`, car1, person1);
 
-car1.setCarOwner(person2);
+car2.setCarOwner(person2);
 car2.showCarInfo();
 console.log(`-----------`, car2, person2);
 
-car1.setCarOwner(person3);
-car2.showCarInfo();
+car3.setCarOwner(person3);
+car3.showCarInfo();
+console.log(`-----------`, car3, person3);
