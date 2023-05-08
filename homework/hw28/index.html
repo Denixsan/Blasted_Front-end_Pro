@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="#">
+        <div>
+            <p>Type your name and surname:</p>
+            <input type="text" name="name" id="userName" placeholder="Ivan Ivanov">
+        </div>
+        <div>
+            <p>Type your birthday:</p>
+            <input type="text" name="birthday" id="userBirthday" placeholder="dd.mm.yyyy">
+        </div>
+        <div>
+            <p>Choose your sex:</p>
+            <input type="radio" name="female" id="userFemale" value="Female">
+            <label for="userFemale">Female</label>
+            <input type="radio" name="male" id="userMale" value="Male">
+            <label for="userMale">Male</label>
+        </div>
+        <div>
+            <label for="userCity">Choose the city where you live:</label>
+            <select name="city" id="userCity">
+                <option value="Kyiv">Kyiv</option>
+                <option value="Poltava">Poltava</option>
+                <option value="Odesa">Odesa</option>
+                <option value="Lviv">Lviv</option>
+                <option value="Ternopil">Ternopil</option>
+                <option value="Vinnytsia">Vinnytsia</option>
+                <option value="Kharkiv">Kharkiv</option>
+                <option value="Zaporizhzhia">Zaporizhzhia</option>
+                <option value="Kryvyi_Rih">Kryvyi Rih</option>
+                <option value="Mykolaiv">Mykolaiv</option>
+                <option value="Chernihiv">Chernihiv</option>
+            </select>
+        </div>
+        <div>
+            <label for="userAddress">Type your address:</label>
+        </div>
+        <div>
+            <textarea name="address" id="userAddress" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <p>Choose your language you're good at:</p>
+        </div>
+        <div>
+            <input type="checkbox" name="english" id="userEnglish">
+            <label for="userEnglish">English</label>
+        </div>
+        <div>
+            <input type="checkbox" name="ukrainian" id="userUkrainian">
+            <label for="userEnglish">Ukrainian</label>
+        </div>
+        <div>
+            <input type="checkbox" name="russian" id="userRussian">
+            <label for="userEnglish">Russian</label>
+        </div>
+        <div>
+            <input type="checkbox" name="german" id="userGerman">
+            <label for="userEnglish">German</label>
+        </div>
+        <div>
+            <input type="checkbox" name="spanish" id="userSpanish">
+            <label for="userEnglish">Spanish</label>
+        </div>
+        <div>
+            <input type="checkbox" name="italian" id="userItalian">
+            <label for="userEnglish">Italian</label>
+        </div>
+        <div>
+            <input type="checkbox" name="french" id="userFrench">
+            <label for="userEnglish">French</label>
+        </div>
+        <input type="submit" value="Save">
+    </form>
+    <script src="js/script.js"></script>
+</body>
+</html>

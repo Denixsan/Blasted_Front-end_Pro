@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form div {
+    margin: 20px;
+}
+
+input[type="submit"] {
+    margin-left: 20px;
+}
