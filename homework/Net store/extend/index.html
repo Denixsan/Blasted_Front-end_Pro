@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Store</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <ul class="root-nav">
+        <li><span>Memes 1</span>
+            <ul>
+                <li><span>Doggy</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/1.png" alt="Doggy">
+                                <h3>Doggy</h3>
+                                <p>100$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Pepe</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/2.png" alt="Pepe">
+                                <h3>Pepe</h3>
+                                <p>50$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Meme Man</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/3.png" alt="Meme Man">
+                                <h3>Meme Man</h3>
+                                <p>150$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><span>Memes 2</span>
+            <ul>
+                <li><span>Spoderman</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/4.png" alt="Spoderman">
+                                <h3>Spoderman</h3>
+                                <p>125$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Sanic</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/5.png" alt="Sanic">
+                                <h3>Sanic</h3>
+                                <p>100$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Mario</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/6.png" alt="Mario">
+                                <h3>Mario</h3>
+                                <p>150$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><span>Memes 3</span>
+            <ul>
+                <li><span>Morshu</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/7.png" alt="Morshu">
+                                <h3>Morshu</h3>
+                                <p>70$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Just a lion</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/8.png" alt="Just a lion">
+                                <h3>Just a lion</h3>
+                                <p>30$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Ducks</span>
+                    <ul>
+                        <li> 
+                            <div class="card">
+                                <img src="images/9.png" alt="Ducks">
+                                <h3>Ducks</h3>
+                                <p>110$</p>
+                                <button class="buy-btn" onclick="buyForm()">Buy</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <form id="buy-form">
+        <div>
+            <input type="text" name="Name" id="userName" placeholder="Your name">
+            <input type="text" name="Surname" id="userSurname" placeholder="Your surname">
+        </div>
+        <div>
+            <label for="userCity">Choose the city where you live:</label>
+            <select name="City" id="userCity">
+                <option value=""></option>
+                <option value="Kyiv">Kyiv</option>
+                <option value="Poltava">Poltava</option>
+                <option value="Odesa">Odesa</option>
+                <option value="Lviv">Lviv</option>
+                <option value="Ternopil">Ternopil</option>
+                <option value="Vinnytsia">Vinnytsia</option>
+                <option value="Kharkiv">Kharkiv</option>
+                <option value="Zaporizhzhia">Zaporizhzhia</option>
+                <option value="Kryvyi_Rih">Kryvyi Rih</option>
+                <option value="Mykolaiv">Mykolaiv</option>
+                <option value="Chernihiv">Chernihiv</option>
+            </select>
+        </div>
+        <div>
+            <label for="userPost">Choose the post office of "Nova Poshta"</label>
+            <select name="Post office of 'Nova Poshta'" id="userPost">
+                <option value=""></option>
+                <option value="Post office №1">Post office №1</option>
+                <option value="Post office №2">Post office №2</option>
+                <option value="Post office №3">Post office №3</option>
+            </select>
+        </div>
+        <div>
+            <label for="userPay">Choose the method of paying:</label>
+            <select name="Pay" id="userPay">
+                <option value=""></option>
+                <option value="credit-card">Credit card</option>
+                <option value="postpay 'Nova Poshta'">Postpay "Nova Poshta"</option>
+            </select>
+        </div>
+        <div>
+            <label for="userNumber">Number of goods:</label>
+            <input type="number" name="Number of goods" id="userNumber" min="1" max="99">
+        </div>
+        <div>
+            <label for="userComment">Comment:</label>
+        </div>
+        <div>
+            <textarea name="Comment" id="userComment" cols="80" rows="10"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Checkout">
+            <p id="alertText"></p>
+        </div>
+    </form>
+    <div id="result">
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

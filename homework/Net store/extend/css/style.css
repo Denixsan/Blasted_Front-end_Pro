@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+}
+
+.root-nav {
+    width: 200px;
+}
+
+.root-nav li {
+    list-style-type: none;
+    background: #574f4f;
+    padding-left: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.root-nav span {
+    text-decoration: none;
+    color: #EEE;
+    padding: 5px 10px;
+    display: block;
+}
+
+.root-nav span:hover {
+    background-color: #FFE492;
+    color: #000;
+    transition: linear 0.3s;
+    }
+
+.root-nav ul {
+    display: none;
+    position: absolute;
+    right: -160px;
+    top: 0;
+    width: 200px;
+    margin: auto;
+}
+
+ul.sub-menu-active {
+    display: block;
+}
+
+.card {
+    border: 1px solid #000000;
+    border-radius: 2px;
+    background-color: #bababa;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    cursor: auto;
+    position: absolute;
+    right: -60px;
+    top: 0;
+
+}
+
+.card img {
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.root-nav ul .card .buy-btn {
+    padding: 10px 20px;
+    background: #00ff00;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px #574f4f solid;
+}
+
+#buy-form {
+    display: none;
+    text-align: center;
+    margin: 50px;
+}
+
+#buy-form div {
+    margin: 20px;
+}
+
+#result {
+    display: none;
+    text-align: center;
+    margin: 50px;
+    padding: 20px;
+    background: #574f4f;
+    color: #fff;
+    border: 1px #000 solid;
+}
