@@ -8,12 +8,16 @@ let listObj = [
                 name: `Doggy`,
                 price: 100,
             }],
+        },
+        {
             name: `Pepe`,
             items: [{
                 image: `images/2.png`,
                 name: `Pepe`,
                 price: 50,
             }],
+        },
+        {
             name: `Meme Man`,
             items: [{
                 image: `images/3.png`,
@@ -21,6 +25,8 @@ let listObj = [
                 price: 150,
             }]
         }],
+    },
+    {
         name: `Memes 2`,
         items: [{
             name: `Spoderman`,
@@ -29,12 +35,16 @@ let listObj = [
                 name: `Spoderman`,
                 price: 125,
             }],
+        },
+        {
             name: `Sanic`,
             items: [{
                 image: `images/5.png`,
                 name: `Sanic`,
                 price: 100,
             }],
+        },
+        {
             name: `Mario`,
             items: [{
                 image: `images/6.png`,
@@ -42,6 +52,8 @@ let listObj = [
                 price: 150,
             }]
         }],
+    },
+    {
         name: `Memes 3`,
         items: [{
             name: `Morshu`,
@@ -50,12 +62,16 @@ let listObj = [
                 name: `Morshu`,
                 price: 70,
             }],
+        },
+        {
             name: `Just a lion`,
             items: [{
                 image: `images/8.png`,
                 name: `Just a lion`,
                 price: 30,
             }],
+        },
+        {
             name: `Ducks`,
             items: [{
                 image: `images/9.png`,
