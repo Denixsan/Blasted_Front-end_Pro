@@ -85,29 +85,45 @@ let listObj = [
 function renderNav() {
     const ul = document.createElement(`ul`);
     ul.className = `root-nav`;
-    document.body.appendChild(ul);
+  
     for (let i = 0; i < listObj.length; i++) {
-        const li = document.createElement(`li`);
-        li.innerHTML = listObj[i].name;
-        ul.appendChild(li);
-        console.log(`Category`, listObj[i]);
-        const ul2 = document.createElement(`ul`);
-        for (let j = 0; j < listObj[i].items.length; j++) {
-            const li2 = document.createElement(`li`);
-            li2.innerHTML = listObj[i].items[j].name;
-            li.appendChild(ul2);
-            ul2.appendChild(li2);
-            console.log(`Subcategory`, listObj[i].items[j]);
-            for (let k = 0; k < listObj[i].items[j].items.length; k++) {
-                const div = document.createElement(`div`);
-                div.className = `card`;
-                div.innerHTML = listObj[i].items[j].items[k].name;
-                li2.appendChild(div);
-                console.log(`Card`, listObj[i].items[j].items[k]);
-            };
-        };
-    };
-};
+      const li = document.createElement(`li`);
+      li.innerHTML = `<span>${listObj[i].name}</span>`;
+  
+      // // console.log(`Category`, listObj[i]);
+  
+      const ul2 = document.createElement(`ul`);
+  
+      for (let j = 0; j < listObj[i].items.length; j++) {
+        const li2 = document.createElement(`li`);
+        li2.innerHTML = `<span>${listObj[i].items[j].name}</span>`;
+        //   console.log(`Subcategory`, listObj[i].items[j]);
+  
+        const ul3 = document.createElement(`ul`);
+        for (let k = 0; k < listObj[i].items[j].items.length; k++) {
+          const div = document.createElement(`div`);
+          div.className = `card`;
+          div.innerHTML = `<img src=${listObj[i].items[j].items[k].image} alt="Pepe">` + `<br>` + `<h3>${listObj[i].items[j].items[k].name}</h3>` + `<p>${listObj[i].items[j].items[k].price}$</p>` + `<br>` + `<button class="buy-btn" onclick="buyForm()">Buy</button>`;
+          // div.innerHTML = ` <img src="images/2.png" alt="Pepe">
+          //   <h3>Pepe</h3>
+          //   <p>50$</p>
+          //   <button class="buy-btn" onclick="buyForm()">Buy</button>`;
+          ul3.appendChild(div);
+          //   console.log(`Card`, listObj[i].items[j].items[k]);
+        }
+  
+        li2.appendChild(ul3);
+  
+        ul2.appendChild(li2);
+      }
+  
+      li.appendChild(ul2);
+  
+      ul.appendChild(li);
+    }
+  
+    document.body.appendChild(ul);
+  }
 
 renderNav();
 

@@ -80,7 +80,8 @@ ul.sub-menu-active {
 
 #buy-form {
     display: none;
-    text-align: center;
+    position: fixed;
+    bottom: 0;
     margin: 50px;
 }
 
@@ -90,7 +91,8 @@ ul.sub-menu-active {
 
 #result {
     display: none;
-    text-align: center;
+    position: fixed;
+    bottom: 20%;
     margin: 50px;
     padding: 20px;
     background: #574f4f;
