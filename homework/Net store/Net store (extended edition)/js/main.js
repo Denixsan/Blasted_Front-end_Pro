@@ -93,21 +93,19 @@ function renderNav() {
       // // console.log(`Category`, listObj[i]);
   
       const ul2 = document.createElement(`ul`);
-  
+
       for (let j = 0; j < listObj[i].items.length; j++) {
         const li2 = document.createElement(`li`);
         li2.innerHTML = `<span>${listObj[i].items[j].name}</span>`;
         //   console.log(`Subcategory`, listObj[i].items[j]);
-  
+
         const ul3 = document.createElement(`ul`);
         for (let k = 0; k < listObj[i].items[j].items.length; k++) {
           const div = document.createElement(`div`);
           div.className = `card`;
-          div.innerHTML = `<img src=${listObj[i].items[j].items[k].image} alt="Pepe">` + `<br>` + `<h3>${listObj[i].items[j].items[k].name}</h3>` + `<p>${listObj[i].items[j].items[k].price}$</p>` + `<br>` + `<button class="buy-btn" onclick="buyForm()">Buy</button>`;
-          // div.innerHTML = ` <img src="images/2.png" alt="Pepe">
-          //   <h3>Pepe</h3>
-          //   <p>50$</p>
-          //   <button class="buy-btn" onclick="buyForm()">Buy</button>`;
+          div.innerHTML = `<img src=${listObj[i].items[j].items[k].image} alt="Pepe">` + `<br>` + `<h3>${listObj[i].items[j].items[k].name}</h3>` + `<p>${listObj[i].items[j].items[k].price}$</p>` + `<br>
+                            <button class="buy-btn" data-cidx='${i}' data-sidx='${j}' data-pidx='${k}' onclick="buyForm()">Buy</button>`;
+          
           ul3.appendChild(div);
           //   console.log(`Card`, listObj[i].items[j].items[k]);
         }
@@ -155,7 +153,15 @@ function closeAllSubMenu(current = null) {
 }
 
 function buyForm() {
-   document.getElementById(`buy-form`).style.display = `block`;
+    const cidx = event.target.getAttribute('data-cidx');
+    const sidx = event.target.getAttribute('data-sidx');
+    const pidx = event.target.getAttribute('data-pidx');
+    console.log(cidx, sidx, pidx, listObj[cidx].items[sidx].items[pidx]);
+    document.getElementById(`result`).innerHTML += `<br>Name of product: ` + listObj[cidx].items[sidx].items[pidx].name + `<br>Price: ` + 
+    listObj[cidx].items[sidx].items[pidx].price + `$<br>`;
+    document.getElementById(`buy-form`).style.display = `block`;
+    document.getElementById(`result`).style.display = `none`;
+    window.price = listObj[cidx].items[sidx].items[pidx].price;
 }
 
 document.querySelector(`form`).addEventListener(`submit`, (event) => {
@@ -178,8 +184,12 @@ document.querySelector(`form`).addEventListener(`submit`, (event) => {
     if (alertText.innerHTML === ``) {
         form.style.display = `none`;
         for (i = 0; i < form.length - 1; i++) {
-        document.getElementById(`result`).innerHTML += (form[i].name + `: ` + form[i].value + `<br>`);
+        document.getElementById(`result`).innerHTML += (form[i].name + `: ` + form[i].value + `<br>`);  
         }
+        const cidx = event.target.getAttribute('data-cidx');
+        const sidx = event.target.getAttribute('data-sidx');
+        const pidx = event.target.getAttribute('data-pidx');
+        document.getElementById(`result`).innerHTML += `Total price: ` + (price * form[5].value) + `$`;
         document.getElementById(`result`).style.display = `block`;
     }
 });
