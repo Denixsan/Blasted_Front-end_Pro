@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Store</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form id="buy-form">
+        <div>
+            <input type="text" name="Name" id="userName" placeholder="Your name">
+            <input type="text" name="Surname" id="userSurname" placeholder="Your surname">
+        </div>
+        <div>
+            <label for="userCity">Choose the city where you live:</label>
+            <select name="City" id="userCity">
+                <option value=""></option>
+                <option value="Kyiv">Kyiv</option>
+                <option value="Poltava">Poltava</option>
+                <option value="Odesa">Odesa</option>
+                <option value="Lviv">Lviv</option>
+                <option value="Ternopil">Ternopil</option>
+                <option value="Vinnytsia">Vinnytsia</option>
+                <option value="Kharkiv">Kharkiv</option>
+                <option value="Zaporizhzhia">Zaporizhzhia</option>
+                <option value="Kryvyi_Rih">Kryvyi Rih</option>
+                <option value="Mykolaiv">Mykolaiv</option>
+                <option value="Chernihiv">Chernihiv</option>
+            </select>
+        </div>
+        <div>
+            <label for="userPost">Choose the post office of "Nova Poshta"</label>
+            <select name="Post office of 'Nova Poshta'" id="userPost">
+                <option value=""></option>
+                <option value="Post office №1">Post office №1</option>
+                <option value="Post office №2">Post office №2</option>
+                <option value="Post office №3">Post office №3</option>
+            </select>
+        </div>
+        <div>
+            <label for="userPay">Choose the method of paying:</label>
+            <select name="Pay" id="userPay">
+                <option value=""></option>
+                <option value="credit-card">Credit card</option>
+                <option value="postpay 'Nova Poshta'">Postpay "Nova Poshta"</option>
+            </select>
+        </div>
+        <div>
+            <label for="userNumber">Number of goods:</label>
+            <input type="number" name="Number of goods" id="userNumber" min="1" max="99">
+        </div>
+        <div>
+            <label for="userComment">Comment:</label>
+        </div>
+        <div>
+            <textarea name="Comment" id="userComment" cols="80" rows="10"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Checkout">
+            <p id="alertText"></p>
+        </div>
+    </form>
+    <div id="result"></div>
+    <button class="my-order" onclick="myOrder()"></button>
+    <div id="myOrderBlock"></div>
+    <script src="js/main.js"></script>
+</body>
+</html>

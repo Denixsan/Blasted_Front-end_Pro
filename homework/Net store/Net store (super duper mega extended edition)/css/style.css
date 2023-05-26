@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+}
+
+.root-nav {
+    width: 200px;
+}
+
+.root-nav li {
+    list-style-type: none;
+    background: #574f4f;
+    padding-left: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.root-nav span {
+    text-decoration: none;
+    color: #EEE;
+    padding: 5px 10px;
+    display: block;
+}
+
+.root-nav span:hover {
+    background-color: #FFE492;
+    color: #000;
+    transition: linear 0.3s;
+    }
+
+.root-nav ul {
+    display: none;
+    position: absolute;
+    right: -160px;
+    top: 0;
+    width: 200px;
+    margin: auto;
+}
+
+ul.sub-menu-active {
+    display: block;
+}
+
+.card {
+    border: 1px solid #000000;
+    border-radius: 2px;
+    background-color: #bababa;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    cursor: auto;
+    position: absolute;
+    right: -60px;
+    top: 0;
+
+}
+
+.card img {
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.root-nav ul .card .buy-btn, .btn-order {
+    padding: 10px 20px;
+    background: #00ff00;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px #574f4f solid;
+}
+
+.root-nav ul .card .buy-btn:hover, .btn-order:hover {
+    background: #ffffff;
+    color: #000;
+    transition: linear 0.3s;
+}
+
+#buy-form {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    margin: 50px;
+}
+
+#buy-form div {
+    margin: 20px;
+}
+
+#result {
+    display: none;
+    position: fixed;
+    bottom: 20%;
+    margin: 50px;
+    padding: 20px;
+    background: #574f4f;
+    color: #fff;
+    border: 1px #000 solid;
+}
+
+.my-order {
+    padding: 10px 20px;
+    background: #ff0000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px #574f4f solid;
+}
+
+.my-order:hover {
+    background: #ffffff;
+    color:#000;
+    transition: linear 0.3s;
+}
+
+#myOrderTable {
+    margin: 50px;
+    padding: 40px;
+    background: #2e89b7;
+    color: #eee;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#myOrderTable tr td {
+    padding: 10px;
+}
+
+#myOrderTable>tr>:nth-child(2), #myOrderTable>tr>:nth-child(3), #myOrderTable>tr>:nth-child(4) {
+    border: 1px #000 solid;
+    border-collapse: collapse;
+}
+
+#myOrderBlock {
+    display: none;
+    justify-content: center;
+}
+
+#deleteBtn {
+    color: #ff0000;
+    background: #bababa;
+    padding: 15px;
+    border: 1px #000 solid;
+    border-radius: 3px;
+}
+
+#deleteBtn:hover {
+    background: #EEE;
+    transition: 0.3s linear;
+}
+
+#expBtn {
+    background: #fff;
+    padding: 10px;
+    border: 1px #000 solid;
+    border-radius: 3px;
+}
+
+#expBtn:hover {
+    background: #bababa;
+    transition: 0.3s linear;
+}
+
+#moreInfo {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #2e89b7;
+    color: #EEE;
+}

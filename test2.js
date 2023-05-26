@@ -1,3 +1,5 @@
+// Product menu declaration
+
 let listObj = [
     {
         name: `Memes 1`,
@@ -82,9 +84,16 @@ let listObj = [
     }
 ];
 
+//  `Result` block assignment
+
+const resultDiv = document.getElementById(`result`);
+
+// Integrate product menu to HTML
+
 function renderNav() {
     const ul = document.createElement(`ul`);
     ul.className = `root-nav`;
+    ul.id = `ulNav`
   
     for (let i = 0; i < listObj.length; i++) {
       const li = document.createElement(`li`);
@@ -125,11 +134,15 @@ function renderNav() {
 
 renderNav();
 
+//Toggle subcategories in menu
+
 document.querySelector(`.root-nav`).onclick = function(event) {
     console.log(event.target.nextElementSibling);
     closeAllSubMenu(event.target.nextElementSibling);
     event.target.nextElementSibling.classList.toggle(`sub-menu-active`);
 }
+
+// Close all submenus, which are not useful for user
 
 function closeAllSubMenu(current = null) {
     let parents = [];
@@ -152,17 +165,26 @@ function closeAllSubMenu(current = null) {
     });       
 }
 
+// The new array of objects declaration for localStorage 
+
+let dataForm = [];
+
+// Open form by clicking the `Buy` button
+
 function buyForm() {
     const cidx = event.target.getAttribute('data-cidx');
     const sidx = event.target.getAttribute('data-sidx');
     const pidx = event.target.getAttribute('data-pidx');
     console.log(cidx, sidx, pidx, listObj[cidx].items[sidx].items[pidx]);
-    document.getElementById(`result`).innerHTML += `<br>Name of product: ` + listObj[cidx].items[sidx].items[pidx].name + `<br>Price: ` + 
+    resultDiv.innerHTML += `<br>Name of product: ` + listObj[cidx].items[sidx].items[pidx].name + `<br>Price: ` + 
     listObj[cidx].items[sidx].items[pidx].price + `$<br>`;
     document.getElementById(`buy-form`).style.display = `block`;
-    document.getElementById(`result`).style.display = `none`;
+    resultDiv.style.display = `none`;
     window.price = listObj[cidx].items[sidx].items[pidx].price;
+    dataForm.push({name: `Name of product`, value: listObj[cidx].items[sidx].items[pidx].name},{name: `Price`, value: (listObj[cidx].items[sidx].items[pidx].price + `$`)});
 }
+
+// Form validation, opening the `Result` block and saving to localStorage
 
 document.querySelector(`form`).addEventListener(`submit`, (event) => {
     event.preventDefault();
@@ -184,9 +206,39 @@ document.querySelector(`form`).addEventListener(`submit`, (event) => {
     if (alertText.innerHTML === ``) {
         form.style.display = `none`;
         for (i = 0; i < form.length - 1; i++) {
-        document.getElementById(`result`).innerHTML += (form[i].name + `: ` + form[i].value + `<br>`);  
+            dataForm.push({name: form[i].name, value: form[i].value});  
+            resultDiv.innerHTML += (form[i].name + `: ` + form[i].value + `<br>`);
         }
-        document.getElementById(`result`).innerHTML += `Total price: ` + (price * form[5].value) + `$`;
-        document.getElementById(`result`).style.display = `block`;
+        let totalPrice = price * form[5].value;
+        resultDiv.innerHTML += `Total price: ` + totalPrice + `$<br><br>`;
+        dataForm.push({name: `Total price`, value: totalPrice});
+        resultDiv.style.display = `block`;
+        console.log(dataForm);
+        localStorage.setItem(`dataForm`, JSON.stringify(dataForm));
+        dataforma = JSON.parse(localStorage.getItem(`dataForm`));
+        for (y = 0; y < dataforma.length; y++) {
+            myOrderBlock.innerHTML += (dataforma[y].name + `: ` + dataforma[y].value + `<br>`);
+        };
+        dataForm = [];
     }
 });
+
+// Opening the 'My orders' block
+
+function myOrder() {
+    resultDiv.style.display = `none`;
+    document.getElementById(`buy-form`).style.display = `none`;
+    document.getElementById(`ulNav`).style.display = `none`;
+    document.getElementById(`myOrderBlock`).style.display = `block`
+    myOrderBlock.style.display = `block`;
+}
+
+// Closing the 'My orders' block
+
+function myOrderClose() {
+    resultDiv.style.display = `none`;
+    document.getElementById(`buy-form`).style.display = `none`;
+    document.getElementById(`ulNav`).style.display = `block`;
+    document.getElementById(`myOrderBlock`).style.display = `none`
+    myOrderBlock.style.display = `none`;
+}
