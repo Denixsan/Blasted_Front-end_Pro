@@ -66,7 +66,7 @@ ul.sub-menu-active {
     background-color: #ffffff;
 }
 
-.root-nav ul .card .buy-btn, .btn-order {
+.root-nav ul .card .buy-btn, .btn-order, .close-btn {
     padding: 10px 20px;
     background: #00ff00;
     font-weight: 600;
@@ -76,6 +76,10 @@ ul.sub-menu-active {
     text-decoration: none;
     border-radius: 5px;
     border: 1px #574f4f solid;
+}
+
+.close-btn {
+    margin: 30px;
 }
 
 .root-nav ul .card .buy-btn:hover, .btn-order:hover {
@@ -181,6 +185,8 @@ ul.sub-menu-active {
     align-items: center;
     width: 100%;
     height: 100%;
-    background: #2e89b7;
+    background: #341ac7;
     color: #EEE;
+    flex-direction: column;
+    padding: 20px;
 }

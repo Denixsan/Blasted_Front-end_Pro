@@ -200,18 +200,43 @@ function addRowToTable (array) {
         let expBtn = document.createElement(`button`);
         expBtn.setAttribute(`id`, `expBtn`);
         expBtn.innerHTML = `More`;
-        expBtn.addEventListener('click', function(){
-            expBtn.setAttribute(`data-sidx`, [x]);
-            let sidx = event.target.getAttribute('data-sidx');
-            console.log(sidx, array[sidx].dataInfo);
-            let moreInfo = document.createElement(`div`);
-            moreInfo.id = `moreInfo`;
-            for (let y = 0; y < dataInfo.length; y++) {
-            moreInfo.innerHTML += array[sidx].dataInfo[y].name + `: `+ array[sidx].dataInfo[y].value + `<br>`;
-            }
-            document.body.appendChild(moreInfo);
+        expBtn.setAttribute(`data-sidx`, x);
+        expBtn.addEventListener('click', function () {
+          let sidx = +event.target.getAttribute('data-sidx');
+          let moreInfo = document.createElement(`div`);
             moreInfo.style.display = `flex`;
-        })
+            moreInfo.id = `moreInfo`;
+            moreInfo.innerHTML = array[sidx].dataInfo.map((x) => `${x.name}: ${x.value}`).join('<br>') + `<br>`;
+
+            // Creating `Close` button inside `moreInfo` block
+
+            let closeBtn = document.createElement(`button`);
+            closeBtn.setAttribute(`class`, `close-btn`);
+            closeBtn.innerHTML = `Close`;
+            closeBtn.addEventListener(`click`, function() {
+                moreInfo.innerHTML = ``;
+                moreInfo.style.display = `none`;
+                moreInfo.remove();
+                for (const button of document.querySelectorAll("#expBtn")) {
+                    button.style.cursor = `pointer`;
+                    button.style.pointerEvents = `auto`;
+                  }
+                  for (const button2 of document.querySelectorAll("#deleteBtn")) {
+                    button2.style.cursor = `pointer`;
+                    button2.style.pointerEvents = `auto`;
+                  }
+            });
+            for (const button of document.querySelectorAll("#expBtn")) {
+                button.style.cursor = `not-allowed`;
+                button.style.pointerEvents = `none`;
+            }
+            for (const button2 of document.querySelectorAll("#deleteBtn")) {
+                button2.style.cursor = `not-allowed`;
+                button2.style.pointerEvents = `none`;
+            }
+            moreInfo.appendChild(closeBtn);
+            document.body.appendChild(moreInfo);
+        });
         newTd1.appendChild(expBtn);
         newRow.appendChild(newTd1);
         let newTd2 = document.createElement(`td`);
@@ -231,16 +256,13 @@ function addRowToTable (array) {
         deleteBtn.setAttribute(`id`, `deleteBtn`);
         deleteBtn.setAttribute(`data-cidx`, [x]);
         deleteBtn.innerHTML = `X`;
-        deleteBtn.addEventListener('click', function(){
-            let cidx = event.target.getAttribute('data-cidx');
-            console.log(x, cidx);
-            // console.log(cidx, array[cidx]);
+        deleteBtn.addEventListener('click', function (event) {
+            let cidx = +event.target.getAttribute('data-cidx');
             array.splice(cidx, 1);
-            console.log(array);
-            array = localStorage.setItem(`product`, JSON.stringify(array));
-            cartInfo();
             newRow.remove(cidx, 1);
-        });
+            localStorage.setItem(`product`, JSON.stringify(array));
+            cartInfo();
+          });
         newTd5.appendChild(deleteBtn);
         newRow.appendChild(newTd5);
     document.getElementById(`myOrderTable`).appendChild(newRow);
@@ -347,25 +369,22 @@ document.querySelector(`form`).addEventListener(`submit`, (event) => {
 
 // Opening the 'My orders' block
 
+var isActive = false;
+
 function myOrder() {
-    const orderBtn = document.querySelector('.my-order')
-    isActive = false;
-    orderBtn.addEventListener('click', function(){
-        if (isActive) {
-        isActive = false;
-        resultDiv.style.display = `none`;
-        document.getElementById(`buy-form`).style.display = `none`;
-        document.getElementById(`ulNav`).style.display = `none`;
-        myOrderBlock.style.display = `flex`;
-            makeTableHTML();
-            addRowToTable(dataForm);
-        } else {
-            isActive = true;
-            resultDiv.style.display = `none`;
-            document.getElementById(`buy-form`).style.display = `none`;
-            document.getElementById(`ulNav`).style.display = `block`;
-            myOrderBlock.innerHTML = ``;
-            myOrderBlock.style.display = `none`;
-        }
-    })
-};
+  isActive = !isActive;
+  if (isActive) {
+    resultDiv.style.display = `none`;
+    document.getElementById(`buy-form`).style.display = `none`;
+    document.getElementById(`ulNav`).style.display = `none`;
+    myOrderBlock.style.display = `flex`;
+    makeTableHTML();
+    addRowToTable(dataForm);
+  } else {
+    resultDiv.style.display = `none`;
+    document.getElementById(`buy-form`).style.display = `none`;
+    document.getElementById(`ulNav`).style.display = `block`;
+    myOrderBlock.innerHTML = ``;
+    myOrderBlock.style.display = `none`;
+  }
+}
