@@ -262,6 +262,9 @@ function addRowToTable (array) {
             newRow.remove(cidx, 1);
             localStorage.setItem(`product`, JSON.stringify(array));
             cartInfo();
+            myOrderBlock.innerHTML = ``;
+            makeTableHTML();
+            addRowToTable(dataForm);
           });
         newTd5.appendChild(deleteBtn);
         newRow.appendChild(newTd5);
