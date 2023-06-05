@@ -29,14 +29,12 @@ let userObj = [];
 //     }
 // ];
 
-userObj = JSON.parse(localStorage.getItem(`users`));
-
-console.log(userObj);
-console.dir(userObj);
-
 // Integrating list of users into HTML
 
 function userNav() {
+  userObj = JSON.parse(localStorage.getItem(`users`));
+  console.log(userObj);
+  console.dir(userObj);
     const posDiv = document.getElementById(`posDiv`);
 
   // Creating `Add` button
@@ -785,12 +783,7 @@ function userNav() {
     posDiv.appendChild(ul);
   }
 
-
-if (userObj !== null) {
-  console.log(1);
-  userNav();
-}
-else {
+if (userObj === null){
   console.log(2);
   const posDiv = document.getElementById(`posDiv`);
 
@@ -1011,7 +1004,7 @@ else {
           }
           if (alertText.innerHTML === ``) {
             console.log(`Yes`);
-            userObj = ({name: addForm.userName.value, password: addForm.pswrd.value, 
+            userObj += ({name: addForm.userName.value, password: addForm.pswrd.value, 
               age: addForm.userAge.value, email: addForm.userEmail.value, phone: addForm.userPhone.value,
             card: addForm.userCard.value});
             localStorage.setItem('users', JSON.stringify(userObj));
@@ -1105,4 +1098,9 @@ else {
       console.dir(addForm);
     });
     posDiv.appendChild(addBtn);
+}
+
+else {
+  console.log(1);
+  userNav();
 }
