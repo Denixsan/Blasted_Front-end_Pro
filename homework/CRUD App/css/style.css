@@ -37,7 +37,7 @@ body {
     display: block;
 }
 
-.edit-btn, .remove-btn, .view-btn, .close-btn {
+.edit-btn, .remove-btn, .view-btn, .close-btn, .add-btn {
     padding: 10px 20px;
     background: #00ff00;
     font-weight: 600;
@@ -49,7 +49,12 @@ body {
     cursor: pointer;
 }
 
-.view-div {
+.edit-btn:hover, .remove-btn:hover, .view-btn:hover, .close-btn:hover, .add-btn:hover {
+    background: #EEE;
+    transition: 0.3s linear;
+}
+
+.view-div, .edit-div, .add-div {
     display: none;
     justify-content: center;
     align-items: center;
@@ -59,4 +64,56 @@ body {
     color: #EEE;
     flex-direction: column;
     padding: 20px;
+}
+
+.edit-div {
+    background: #c68433;
+}
+
+.add-div {
+    background: #9d04e3;
+}
+
+.edit_form, .add_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form_input {
+    background: #ccc212;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn_ac {
+    margin: 10px;
+    padding: 10px 20px;
+    background: #9d04e3;
+    color: #EEE;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px #574f4f solid;
+    cursor: pointer;
+}
+
+.add_form .btn_ac {
+    background: #ccc212;
+}
+
+.btn_ac:hover {
+    background: #EEE;
+    color: #000;
+    transition: 0.3s linear;
+}
+
+.alert-text {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(134, 27, 27);
 }

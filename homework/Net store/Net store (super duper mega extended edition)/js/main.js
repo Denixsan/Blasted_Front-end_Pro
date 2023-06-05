@@ -347,6 +347,7 @@ document.querySelector(`form`).addEventListener(`submit`, (event) => {
             form.classList.add("invalid");
             alertText.innerHTML = "One of your inputs is invalid";
             alertText.style.color = "#ff0000";
+            break;
         }
         else {
             form.classList.add("valid");
