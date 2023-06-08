@@ -158,7 +158,10 @@ function userNav() {
 
 if (userObj.length == 0 && localStorage.getItem(`users`) == null){
   console.log(2);
-  const posDiv = document.getElementById(`posDiv`);
+  const posDiv = document.createElement(`div`);
+  posDiv.id = `posDiv`;
+  posDiv.className = `pos-div`;
+  document.body.appendChild(posDiv);
 
   // Creating `Add` button
 
