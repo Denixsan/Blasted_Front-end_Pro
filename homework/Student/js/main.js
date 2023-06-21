@@ -13,9 +13,8 @@ class Student {
         `Marks: ${this.studentMarks}`
     );
     console.log(`Average mark: ${this.average()}; Age: ${this.age()}`);
-    this.sAttendance = new Array(25).fill();
+    this.sAttendance = new Array(25).fill(`visit`);
     console.log(this.sAttendance);
-    console.log(this.summary());
   }
   average() {
     return (
@@ -27,19 +26,19 @@ class Student {
     return new Date().getFullYear() - this.studentBirthYear;
   };
   absent() {
-    let index = this.sAttendance.findIndex(x=> x === undefined);
-    this.sAttendance.splice(index, 1, `false`);
-    // this.sAttendance[index] = false;
+    let index = this.sAttendance.findIndex(x=> x === `visit`);
+    // this.sAttendance.splice(index, 1, `false`);
+    this.sAttendance[index] = false;
   };
   present() {
-    let index = this.sAttendance.findIndex(x=> x === undefined);
-    this.sAttendance.splice(index, 1, `true`);
-    // this.sAttendance[index] = true;
+    let index = this.sAttendance.findIndex(x=> x === `visit`);
+    // this.sAttendance.splice(index, 1, `true`);
+    this.sAttendance[index] = true;
   };
   summary() {
-    console.log(this.sAttendance.filter((x) => x === `true`));
+    console.log(this.sAttendance.filter((x) => x === true));
     this.sAvgAttendance = +(
-      this.sAttendance.filter((x) => x === `true`).length /
+      this.sAttendance.filter((x) => x === true).length /
       this.sAttendance.length
     );
     console.log(`Percentage of attendance: ${this.sAvgAttendance}`);
@@ -80,5 +79,6 @@ student1.absent();
 student1.present();
 student1.present();
 student1.present();
+student1.summary();
 // const student2 = new Student(`Oleg`, `Padlov`, `1997`, [90, 93, 96, 82, 97]);
 // const student3 = new Student(`Lola`, `Surka`, `2002`, [95, 96, 97, 98, 99]);
