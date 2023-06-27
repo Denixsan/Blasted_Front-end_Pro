@@ -9,17 +9,24 @@ class Hamburger {
                     `Additive: ${this.hamburgerAdditive} `);
          
     };
+    static SIZE_SMALL = `small`;
+    static SIZE_BIG = `big`;
+    static FILLING_CHEESE = `cheese`;
+    static FILLING_SALAD = `salad`;
+    static FILLING_POTATO = `potato`;
+    static ADDITIVE_MAYO = `mayo`;
+    static ADDITIVE_SPICE = `spice`;
     addAddtive(hAdditive) {
         if ((hAdditive === `mayo` || hAdditive === `spice`) && this.hamburgerAdditive === undefined) {
             this.additiveArray.push(hAdditive);
-            this.hamburgerAdditive = this.additiveArray.toString();
+            this.hamburgerAdditive = this.additiveArray.join(`, `);
             console.log(`Size: ${this.hamburgerSize} `,
                         `Filling: ${this.hamburgerFilling} `,
                         `Additive: ${this.hamburgerAdditive} `);
         }
         else if (this.hamburgerAdditive !== undefined) {
             this.additiveArray.push(hAdditive);
-            this.hamburgerAdditive = this.additiveArray.toString();
+            this.hamburgerAdditive = this.additiveArray.join(`, `);
             console.log(`Size: ${this.hamburgerSize} `,
                         `Filling: ${this.hamburgerFilling} `,
                         `Additive: ${this.hamburgerAdditive} `);
@@ -74,13 +81,13 @@ class Hamburger {
     }
 };
 
-const hamburger1 = new Hamburger(`small`, `cheese`);
-hamburger1.addAddtive(`mayo`);
+const hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.FILLING_CHEESE);
+hamburger1.addAddtive(Hamburger.ADDITIVE_MAYO);
 hamburger1.calculateCalories();
 hamburger1.calculatePrice();
-hamburger1.addAddtive(`spice`);
+hamburger1.addAddtive(Hamburger.ADDITIVE_SPICE);
 hamburger1.calculatePrice();
-const hamburger2 = new Hamburger(`big`, `salad`);
-hamburger2.addAddtive(`mayo`);
+const hamburger2 = new Hamburger(Hamburger.SIZE_BIG, Hamburger.FILLING_SALAD);
+hamburger2.addAddtive(Hamburger.ADDITIVE_MAYO);
 hamburger2.calculateCalories();
 hamburger2.calculatePrice();
