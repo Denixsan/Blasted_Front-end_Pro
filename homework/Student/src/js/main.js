@@ -1,5 +1,7 @@
 `use strict`;
 
+import * as clock from "./modules/clock.js"
+
 class Student {
   constructor(sName, sSurname, sBirthYear, sMarks) {
     this.studentName = sName;
