@@ -18,30 +18,47 @@ runBtn.addEventListener(`click`, function () {
     applyBtn.className = `submit-btn`;
     applyBtn.innerHTML = `Apply`
     applyBtn.addEventListener(`click`, function () {
-        let postDiv = document.createElement(`div`);
-        postDiv.id = `postDiv`;
-        postDiv.className = `post-div`;
-        // console.log(idInput);
-        // console.dir(idInput);
+
         if (idInput.value >= 1 && idInput.value <= 100) {
-        fetch(`https://jsonplaceholder.typicode.com/posts/${idInput.value}`)
-        .then(response => response.json())
-        .then(json => console.log(json))
-        .catch(err => {
-            console.error(`Error: `, err)
-        })
-        const commentBtn = document.createElement(`button`);
-        commentBtn.className = `comment-btn`;
-        commentBtn.innerHTML = `Comments`;
-        commentBtn.addEventListener(`click`, function() {
-            fetch(`https://jsonplaceholder.typicode.com/posts/${idInput.value}/comments`)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${idInput.value}`)
             .then(response => response.json())
-            .then(json => console.log(json))
+            .then((json) => {
+                let postDiv = document.createElement(`div`);
+                postDiv.id = `postDiv`;
+                postDiv.className = `post-div`;
+                postDiv.innerHTML = json.body;
+                console.log(json);
+                divCon.appendChild(postDiv);
+            })
             .catch(err => {
                 console.error(`Error: `, err)
             })
-        })
-        divCon.appendChild(commentBtn);
+            const commentBtn = document.createElement(`button`);
+            commentBtn.className = `comment-btn`;
+            commentBtn.innerHTML = `Comments`;
+            commentBtn.addEventListener(`click`, function() {
+                fetch(`https://jsonplaceholder.typicode.com/posts/${idInput.value}/comments`)
+                .then(response => response.json())
+                .then((json) => {
+                    console.log(json);
+                    let commDiv = document.createElement(`div`);
+                    commDiv.id = `commDiv`;
+                    commDiv.className = `comm-div`;
+                    commDiv.innerHTML = `<p>Comments: </p>`;
+                    for (let i = 0; i < json.length; i++) {
+                        commDiv.innerHTML += `<p>${i+1}. ${json[i].body}</p>`;
+                    }
+                    // commDiv.innerHTML = json.body;
+                    console.log(json);
+                    divCon.appendChild(commDiv);
+                    commentBtn.style.cursor = `not-allowed`;
+                    commentBtn.style.pointerEvents = `none`;
+                })
+                .catch(err => {
+                    console.error(`Error: `, err)
+                })
+            })
+            divCon.appendChild(commentBtn);
         }
         else {
             alert(`Type ID from 1 to 100.`);
@@ -50,7 +67,6 @@ runBtn.addEventListener(`click`, function () {
 
     runBtn.style.cursor = `not-allowed`;
     runBtn.style.pointerEvents = `none`;
-
     divCon.appendChild(idInput);
     divCon.appendChild(applyBtn);
 });
