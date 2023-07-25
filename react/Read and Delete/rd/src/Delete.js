@@ -8,20 +8,12 @@ class Delete extends React.Component {
             pointerEvents: 'auto'
           }
     }
-    deletePost = () => {
-              this.props.postDiv.innerHTML = ``;
-          this.setState({
-            cursor: 'not-allowed',
-            pointerEvents: 'none'
-          });
-    }
-    render() {
-        return (
-          <button style={this.state} id="removeBtn" className="remove-btn" onClick={this.deletePost}>
-            Delete
-          </button>
-        );
-      }
+
+    // render() {
+    //     return (
+
+    //     );
+    //   }
 }
 
 export default Delete;

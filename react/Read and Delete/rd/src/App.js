@@ -1,16 +1,16 @@
 import React from "react";
-import Delete from "./Delete";
-import Edit from "./Edit";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cursor: 'pointer',
-      pointerEvents: 'auto'
+      display: 'auto'
     }
   }
   displayPost = () => {
+        this.setState({
+      display: 'none'
+    });
     const divCon = document.createElement(`div`);
     divCon.id = `divCon`;
     divCon.className = `div-con`;
@@ -38,6 +38,42 @@ class App extends React.Component {
             localStorage.setItem('post', JSON.stringify(postInfo));
             console.log(json);
             divCon.appendChild(postDiv);
+            const editBtn = document.createElement(`button`);
+            editBtn.className = `edit-btn`;
+            editBtn.innerHTML = `Edit`;
+            editBtn.addEventListener('click', function () {
+              let editInput = document.createElement('textarea');
+              editInput.id = 'editInput';
+              editInput.className = 'edit-input';
+              editInput.setAttribute('rows', '5');
+              editInput.setAttribute('cols', '70');
+              editInput.value = postInfo;
+              let applyEdit = document.createElement('button');
+              applyEdit.id = 'applyEdit';
+              applyEdit.className = 'apply-edit';
+              applyEdit.innerHTML = 'Apply';
+              applyEdit.addEventListener('click', function() {
+                postDiv.innerHTML = editInput.value;
+                editInput.remove();
+                applyEdit.remove();
+                postDiv.appendChild(editBtn);
+                postDiv.appendChild(deleteBtn);
+              })
+              divCon.appendChild(editInput);
+              divCon.appendChild(applyEdit);
+            })
+            const deleteBtn = document.createElement(`button`);
+            deleteBtn.className = `delete-btn`;
+            deleteBtn.innerHTML = `Delete`;
+            deleteBtn.addEventListener('click', function () {
+              postDiv.innerHTML = ``;
+              divCon.appendChild(idInput);
+              divCon.appendChild(applyBtn);
+            })
+            postDiv.appendChild(editBtn);
+            postDiv.appendChild(deleteBtn);
+            applyBtn.remove();
+            idInput.remove();
           })
           .catch((err) => {
             console.error(`Error: `, err);
@@ -50,19 +86,14 @@ class App extends React.Component {
     divCon.appendChild(idInput);
     divCon.appendChild(applyBtn);
     document.body.appendChild(divCon);
-    this.setState({
-      cursor: 'not-allowed',
-      pointerEvents: 'none'
-    });
   };
+
   render() {
     return (
       <>
         <button style={this.state} className="run-btn" onClick={this.displayPost}>
           Run
         </button>
-        <Delete />
-        <Edit />
       </>
     );
   }
