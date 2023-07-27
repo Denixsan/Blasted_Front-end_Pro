@@ -35,7 +35,6 @@ class App extends React.Component {
             postDiv.id = `postDiv`;
             postDiv.className = `post-div`;
             postDiv.innerHTML = postInfo;
-            localStorage.setItem('post', JSON.stringify(postInfo));
             console.log(json);
             divCon.appendChild(postDiv);
             const editBtn = document.createElement(`button`);
@@ -54,6 +53,7 @@ class App extends React.Component {
               applyEdit.innerHTML = 'Apply';
               applyEdit.addEventListener('click', function() {
                 postDiv.innerHTML = editInput.value;
+                postInfo = editInput.value;
                 editInput.remove();
                 applyEdit.remove();
                 postDiv.appendChild(editBtn);

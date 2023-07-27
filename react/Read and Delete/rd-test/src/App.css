@@ -1,0 +1,7 @@
+.mainWindow {
+  display: flex;
+  gap: 20px;
+}
+.viewWindow {
+  border: 1px black solid
+}
