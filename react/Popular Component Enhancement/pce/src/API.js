@@ -4,9 +4,8 @@ const handleError = (error) =>{console.error(error)}
 
 export const fetchPopularRepos = (language) => {
 
-const encodeURL = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`)
-axios.get(encodeURL)
+const encodeURI = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`)
+ return axios.get(encodeURI)
 .then(response =>response.data.items)
 .catch(handleError)
-
 }

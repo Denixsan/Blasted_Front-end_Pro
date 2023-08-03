@@ -21,20 +21,27 @@ const Popular = () => {
 },[selectedLanguage]);
 
 if(loading)
-{return <p>loading...</p>}
+{return <div class="cube">
+<div class="side"></div>
+<div class="side"></div>
+<div class="side"></div>
+<div class="side"></div>
+<div class="side"></div>
+<div class="side"></div>
+</div>}
 
 if(error)
 {return <p>error</p>}
 
     return (
-        <div>
+        <div className="popular-list-container">
             <ul className='languages'>
                 {languages.map((language, index) => {
                     return (
                     <li
                         key={index}
                         style={{ color: selectedLanguage === language ? '#d0021b' :'#000000' }}
-                        onclick={() => setSelectedLanguage(language)} >
+                        onClick={() => setSelectedLanguage(language)} >
                         {language}
                     </li>
                 )})}
@@ -44,12 +51,12 @@ if(error)
                 return(
                     <li key={repo.id} className="popular-item">
                         <div className="popular-rank">
-                            # {index+1}
+                            #{index+1}
                         </div>
                         <ul className="space-list-item">
-                            <li><img className="avatar" src={repo.owwner.avatar_url} alt ="avatar" />
+                            <li><img className="avatar" src={repo.owner.avatar_url} alt ="avatar" />
                             <li>
-                                <a href={repo.html_url} target="_blank" rel="noreferrer"> {repo.name} </a>
+                                <a href={repo.html_url} target="_blank"> {repo.name} </a>
                             </li>
                             <li>@{repo.owner.login}</li>
                             <li> {repo.stargazers_count}</li>
