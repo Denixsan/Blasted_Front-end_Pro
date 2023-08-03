@@ -21,13 +21,28 @@ const Popular = () => {
 },[selectedLanguage]);
 
 if(loading)
-{return <div class="cube">
-<div class="side"></div>
-<div class="side"></div>
-<div class="side"></div>
-<div class="side"></div>
-<div class="side"></div>
-<div class="side"></div>
+{return <div className="loading-container">
+    <ul className='languages'>
+        {languages.map((language, index) => {
+            return (
+            <li
+                key={index}
+                style={{ color: selectedLanguage === language ? '#d0021b' :'#000000' }}
+                onClick={() => setSelectedLanguage(language)} >
+                {language}
+            </li>
+        )})}
+    </ul>
+    <div className="cube-pos">
+            <div class="cube">
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+        </div>
+    </div>
 </div>}
 
 if(error)

@@ -155,8 +155,23 @@ li {
   cursor: pointer;
 }
 
-.cube {
+.loading-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-pos {
   margin: 22.5% 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube {
   font-size: 24px;
   height: 1em;
   width: 1em;
