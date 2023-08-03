@@ -27,7 +27,7 @@ if(loading)
             return (
             <li
                 key={index}
-                style={{ color: selectedLanguage === language ? '#d0021b' :'#000000' }}
+                style={{pointerEvents: 'none', color: selectedLanguage === language ? '#d0021b' :'#000000' }}
                 onClick={() => setSelectedLanguage(language)} >
                 {language}
             </li>
