@@ -5,14 +5,14 @@ import { fetchPopularRepos } from "./API";
 const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
 
 const Popular = () => {
-
-    const [selectedLanguage, setSelectedLanguage] = useState("All");
+    const lastVisitedPage = sessionStorage.getItem('URL');
+    const [selectedLanguage, setSelectedLanguage] = useState(lastVisitedPage || 'All');
     const [loading, setLoading] = useState(false);
     const [repos, setRepos] = useState([]);
     const [error, setError] = useState(null);
 
-
     useEffect(() => {
+        sessionStorage.setItem("URL", selectedLanguage)
         setLoading(true);
         fetchPopularRepos(selectedLanguage)
             .then(data => setRepos(data))
@@ -34,13 +34,13 @@ if(loading)
         )})}
     </ul>
     <div className="cube-pos">
-            <div class="cube">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
+            <div className="cube">
+            <div className="side"></div>
+            <div className="side"></div>
+            <div className="side"></div>
+            <div className="side"></div>
+            <div className="side"></div>
+            <div className="side"></div>
         </div>
     </div>
 </div>}
