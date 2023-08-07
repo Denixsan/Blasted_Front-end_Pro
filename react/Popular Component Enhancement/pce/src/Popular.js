@@ -21,7 +21,7 @@ const Popular = () => {
 },[selectedLanguage]);
 
 if(loading)
-{return <div className="loading-container">
+{return <div className="container">
     <ul className='languages'>
         {languages.map((language, index) => {
             return (
